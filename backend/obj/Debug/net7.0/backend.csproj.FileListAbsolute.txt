@@ -1,0 +1,15 @@
+/Users/sebastianbelmonte01/Desktop/products/backend/bin/Debug/net7.0/backend
+/Users/sebastianbelmonte01/Desktop/products/backend/bin/Debug/net7.0/backend.deps.json
+/Users/sebastianbelmonte01/Desktop/products/backend/bin/Debug/net7.0/backend.runtimeconfig.json
+/Users/sebastianbelmonte01/Desktop/products/backend/bin/Debug/net7.0/backend.dll
+/Users/sebastianbelmonte01/Desktop/products/backend/bin/Debug/net7.0/backend.pdb
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/backend.csproj.AssemblyReference.cache
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/backend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/backend.AssemblyInfoInputs.cache
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/backend.AssemblyInfo.cs
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/backend.csproj.CoreCompileInputs.cache
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/backend.dll
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/refint/backend.dll
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/backend.pdb
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/backend.genruntimeconfig.cache
+/Users/sebastianbelmonte01/Desktop/products/backend/obj/Debug/net7.0/ref/backend.dll
