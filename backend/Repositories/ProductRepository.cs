@@ -17,6 +17,11 @@ public class ProductRepository : IProductRepository
     public async Task<List<Product>> GetAllAsync() => await _context.Products.ToListAsync();
 
     public async Task<List<Product>> SearchAsync(string query) => await _context.Products
-        .Where(product => product.Name.Contains(query))
+        .Where(product => product.Name.ToLower().Contains(query.ToLower()))
         .ToListAsync();
+    public async Task<Product?> GetByIdAsync(int id)
+        => await _context.Products.FindAsync(id);
+
+    public async Task SaveAsync()
+        => await _context.SaveChangesAsync();
 }

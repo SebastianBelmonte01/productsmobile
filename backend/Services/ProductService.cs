@@ -36,7 +36,31 @@ public class ProductService : IProductService
             Currency = p.Currency,
             Stock = p.Stock
         }).ToList();
-            
+    }
+    
+    public async Task<ProductResponseDto?> UpdatePriceAsync(int id, decimal price)
+    {
+        if (price <= 0)
+            throw new ArgumentException("El precio debe ser mayor que cero.");
+
+        var product = await _repo.GetByIdAsync(id);
+
+        if (product == null)
+            return null;
+
+        product.Price = price;
+
+        await _repo.SaveAsync();
+
+        return new ProductResponseDto
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Sku = product.Sku,
+            Price = product.Price,
+            Currency = product.Currency,
+            Stock = product.Stock
+        };
     }
 
 }
