@@ -14,11 +14,20 @@ public class ProductRepository : IProductRepository
         _context = context;
     }
 
-    public async Task<List<Product>> GetAllAsync() => await _context.Products.ToListAsync();
+    public async Task<List<Product>> GetAllAsync(int page, int pageSize)
+    {
+        return await _context.Products
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+    }
 
-    public async Task<List<Product>> SearchAsync(string query) => await _context.Products
-        .Where(product => product.Name.ToLower().Contains(query.ToLower()))
-        .ToListAsync();
+    public async Task<List<Product>> SearchAsync(string query)
+    {
+        return await _context.Products
+            .Where(product => product.Name.ToLower().Contains(query.ToLower()) || product.Sku.Contains(query))
+            .ToListAsync();
+    } 
     public async Task<Product?> GetByIdAsync(int id)
         => await _context.Products.FindAsync(id);
 

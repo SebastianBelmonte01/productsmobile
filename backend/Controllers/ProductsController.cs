@@ -16,9 +16,11 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll(
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10)
     {
-        return Ok(await _service.GetAllAsync());
+        return Ok(await _service.GetAllAsync(page, pageSize));
     }
     
     [HttpGet("search")]

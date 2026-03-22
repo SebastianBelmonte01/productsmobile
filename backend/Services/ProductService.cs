@@ -11,9 +11,11 @@ public class ProductService : IProductService
         _repo = repo;
     }
 
-    public Task<List<ProductResponseDto>> GetAllAsync()
+    public async Task<List<ProductResponseDto>> GetAllAsync(int  page, int pageSize)
     {
-        return Task.FromResult(_repo.GetAllAsync().Result.Select(p => new ProductResponseDto
+        var products = await _repo.GetAllAsync(page, pageSize);
+
+        return products.Select(p => new ProductResponseDto
         {
             Id = p.Id,
             Name = p.Name,
@@ -21,7 +23,7 @@ public class ProductService : IProductService
             Price = p.Price,
             Currency = p.Currency,
             Stock = p.Stock
-        }).ToList());
+        }).ToList();
     }
 
     public async Task<List<ProductResponseDto>> SearchAsync(string query)
