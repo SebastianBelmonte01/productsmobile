@@ -61,6 +61,13 @@ class _ProductSearchScreenState extends State<ProductSearchScreen> {
                       trailing: Text(
                         "${product.price} ${product.currency}",
                       ),
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          "/edit",
+                          arguments: product,
+                        );
+                      },
                     );
                   },
                 );

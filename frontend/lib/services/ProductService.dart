@@ -29,18 +29,20 @@ class ProductService {
   }
 
   Future<void> updatePrice(int id, double price) async {
-    final response = await http.patch(
-      Uri.parse("$baseUrl/$id/price"),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: jsonEncode(price),
-    );
+  final response = await http.patch(
+    Uri.parse("$baseUrl/$id/price"),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: jsonEncode({
+      "price": price
+    }),
+  );
 
-    if (response.statusCode != 204) {
-      throw Exception("Error al actualizar precio");
-    }
+  if (response.statusCode != 200) {
+    throw Exception("Error al actualizar precio");
   }
+}
   
   
 }

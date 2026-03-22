@@ -40,6 +40,13 @@ class ProductListScreen extends StatelessWidget {
                 title: Text(product.name),
                 subtitle: Text(product.sku),
                 trailing: Text("${product.price} ${product.currency}"),
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    "/edit",
+                    arguments: product,
+                  );
+                },
               );
             },
           );

@@ -39,7 +39,7 @@ class ProductProvider extends ChangeNotifier {
 
       searchResults = await _service.searchProducts(query);
     } catch (e) {
-      error = e.toString();
+      error = "No se encontraron productos";
     }
 
     isLoading = false;
@@ -52,40 +52,12 @@ class ProductProvider extends ChangeNotifier {
   }
 
 
-  Future<void> updatePrice(int id, double price) async {
+  Future<bool> updatePrice(int id, double price) async {
     try {
-      isLoading = true;
-      notifyListeners();
-
       await _service.updatePrice(id, price);
-      final index = products.indexWhere((p) => p.id == id);
-      if (index != -1) {
-        products[index] = Product(
-          id: products[index].id,
-          name: products[index].name,
-          sku: products[index].sku,
-          price: price,
-          currency: products[index].currency,
-          stock: products[index].stock,
-        );
-      }
-      final searchIndex = searchResults.indexWhere((p) => p.id == id);
-      if (searchIndex != -1) {
-        searchResults[searchIndex] = Product(
-          id: searchResults[searchIndex].id,
-          name: searchResults[searchIndex].name,
-          sku: searchResults[searchIndex].sku,
-          price: price,
-          currency: searchResults[searchIndex].currency,
-          stock: searchResults[searchIndex].stock,
-        );
-      }
-
+      return true;
     } catch (e) {
-      error = e.toString();
+      return false;
     }
-
-    isLoading = false;
-    notifyListeners();
   }
 }
